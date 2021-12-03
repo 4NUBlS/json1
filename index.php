@@ -48,10 +48,16 @@
          
             var url = "https://cj-android-demon.herokuapp.com/json2.php";
             console.log(url);
-            $.get(url, (data, status)=>{
-                console.log(data);
-                
-            })
+            $.getJSON(url)
+                .done((data)=>{
+                    $.each(data, (k, item)=>{
+                        console.log(item);
+                        console.log(item.fname);
+                    });
+                })
+                .fail((shr, status, err)=>{
+                    console.log(err);
+                });
         });
     });
 </script>
